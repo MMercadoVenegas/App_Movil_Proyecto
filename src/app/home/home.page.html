@@ -3,6 +3,9 @@
     <ion-title>
       Mi página en Blanco
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">Cerrar Sesión</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +17,12 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
+    <ng-container *ngIf="username; else noUsername">
+      <strong>Asi que te atreves a mostrar tu cara por aqui de nuevo, eh {{ username }}!?</strong>
+    </ng-container>
+    <ng-template #noUsername>
+      <strong>Ready to create an app?</strong>
+    </ng-template>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
 </ion-content>
